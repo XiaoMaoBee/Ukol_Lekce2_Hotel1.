@@ -1,20 +1,18 @@
 package com.engeto.hotel;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Booking {
-    boolean isVacation;
-    boolean isWorkStay;
-    LocalDate startDay;
-    LocalDate endDay;
-    int numOfGuests;
-    Guest guest;
+    private boolean isVacation;
+    private boolean isWorkStay;
+    private LocalDate startDay;
+    private LocalDate endDay;
+    private int numOfGuests;
+    private String name;
+    private String surname;
 
 
-
-    public Booking(Guest guest, boolean isVacation,boolean isWorkStay
+    public Booking(String name ,String surname, boolean isVacation,boolean isWorkStay
             ,LocalDate startDay,LocalDate endDay, int numOfGuests) {
 
         this.isVacation = isVacation;
@@ -22,27 +20,13 @@ public class Booking {
         this.startDay = startDay;
         this.endDay = endDay;
         this.numOfGuests = numOfGuests;
-        this.guest = guest;
+        this.name = name;
+        this.surname = surname;
 
-
-    }
-    List<Booking> listOfBookings = new ArrayList<>();
-
-    public void getListOfAllBookings() {
-        for(Booking list : listOfBookings) {
-            System.out.println(
-                "Name: "
-                + list.guest.getName()
-                + " "
-                + list.guest.getSurname() + ", is vacation: "
-                + list.isVacation() + ", is workstay: "
-                + list.isWorkStay() + ", start date is: "
-                + list.getStartDay() + ", end date is: "
-                + list.getEndDay());
-        }
 
 
     }
+
 
 
     ///region get/set
@@ -87,13 +71,23 @@ public class Booking {
         this.numOfGuests = numOfGuests;
     }
 
-    public List<Booking> getListOfBookings() {
-        return listOfBookings;
+    public String getName() {
+        return name;
     }
 
-    public void setListOfBookings(List<Booking> listOfBookings) {
-        this.listOfBookings = listOfBookings;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+
 
 
     ///endregion
