@@ -1,6 +1,7 @@
 package com.engeto.hotel;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Booking {
     private boolean isVacation;
@@ -10,10 +11,11 @@ public class Booking {
     private int numOfGuests;
     private String name;
     private String surname;
+    private List<Guest> bookedGuests;
 
 
     public Booking(String name ,String surname, boolean isVacation,boolean isWorkStay
-            ,LocalDate startDay,LocalDate endDay, int numOfGuests) {
+            ,LocalDate startDay,LocalDate endDay, int numOfGuests, List<Guest> bookedGuests) {
 
         this.isVacation = isVacation;
         this.isWorkStay = isWorkStay;
@@ -22,12 +24,9 @@ public class Booking {
         this.numOfGuests = numOfGuests;
         this.name = name;
         this.surname = surname;
-
-
+        this.bookedGuests = bookedGuests;
 
     }
-
-
 
     ///region get/set
 

@@ -2,6 +2,8 @@ package com.engeto.hotel;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -10,7 +12,12 @@ public class Main {
         BookingList bookingList = new BookingList();
 
 
+        ///region Booking lists for each booking
+        List<Guest> bookingGuests = new ArrayList<>();
+        List<Guest> booking1Guests = new ArrayList<>();
+        List<Guest> booking2Guests = new ArrayList<>();
 
+        ///endregion
 
         ///region Vytvoř hosty. Vypiš na obrazovku jejich popis:
 
@@ -18,6 +25,7 @@ public class Main {
                 , LocalDate.of(1993, 10, 3));
         Guest guest2 = new Guest("Jan", "Dvořáček"
                 , LocalDate.of(1995, 5, 5));
+
 
 
         System.out.println("Guest " + guest1.getName() + guest1.getSurname()
@@ -48,40 +56,45 @@ public class Main {
                 System.out.println(" ");
         ///endregion
 
-        ///region Připrav rezervace:
+        ///region Create bookings and add guests to each booking :
 
+        bookingGuests.add(guest1);
         Booking booking = new Booking(guest1.getName(), guest1.getSurname(), true,false
                 , LocalDate.of(2021, 7, 19)
-                , LocalDate.of(2021, 7, 26), 1);
+                , LocalDate.of(2021, 7, 26), 1,bookingGuests);
+        booking1Guests.add(guest1);
+        booking1Guests.add(guest2);
         Booking booking1 = new Booking(guest2.getName(), guest2.getSurname(), true, false
                 , LocalDate.of(2021, 9, 3)
-                , LocalDate.of(2021, 9, 14), 2);
+                , LocalDate.of(2021, 9, 14), 2,booking1Guests);
 
 
-        System.out.println(
-                "Name: "
-                        + booking.getName()
-                        + " "
-                        + booking.getSurname() + ", is vacation: "
-                        + booking.isVacation() + ", is workstay: "
-                        + booking.isWorkStay() + ", start date is: "
-                        + booking.getStartDay() + ", end date is: "
-                        + booking.getEndDay() + ", num. of guests: "
-                        + booking.getNumOfGuests()
-        );
 
-        System.out.println(
-                "Name: "
-                        + booking1.getName()
-                        + " "
-                        + booking1.getSurname() + ", is vacation: "
-                        + booking1.isVacation() + ", is workstay: "
-                        + booking1.isWorkStay() + ", start date is: "
-                        + booking1.getStartDay() + ", end date is: "
-                        + booking1.getEndDay() + ", num. of guests: "
-                        + booking1.getNumOfGuests()
-        );
-                System.out.println(" ");
+
+//        System.out.println(
+//                "Name: "
+//                        + booking.getName()
+//                        + " "
+//                        + booking.getSurname() + ", is vacation: "
+//                        + booking.isVacation() + ", is workstay: "
+//                        + booking.isWorkStay() + ", start date is: "
+//                        + booking.getStartDay() + ", end date is: "
+//                        + booking.getEndDay() + ", num. of guests: "
+//                        + booking.getNumOfGuests()
+//        );
+//
+//        System.out.println(
+//                "Name: "
+//                        + booking1.getName()
+//                        + " "
+//                        + booking1.getSurname() + ", is vacation: "
+//                        + booking1.isVacation() + ", is workstay: "
+//                        + booking1.isWorkStay() + ", start date is: "
+//                        + booking1.getStartDay() + ", end date is: "
+//                        + booking1.getEndDay() + ", num. of guests: "
+//                        + booking1.getNumOfGuests()
+//        );
+//                System.out.println(" ");
 
 
         ///endregion
